@@ -100,6 +100,14 @@ img { display: block; max-width: 100%; }
   background: radial-gradient(ellipse at 50% 0%, #2a1a3e 0%, #0f0f1a 70%);
   position: relative;
 }
+
+@media (min-width: 480px) {
+  .hero {
+    min-height: 0;
+    height: auto;
+    padding: 32px 20px 24px;
+  }
+}
 .hero-logo {
   width: 90px; height: 90px;
   border-radius: 50%;
