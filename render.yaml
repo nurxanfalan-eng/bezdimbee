@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: crepes-lenkeran
+    runtime: static
+    staticPublishPath: .
+    buildCommand: echo "No build needed"
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600

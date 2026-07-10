@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#1a1a2e" />
+  <title>Crepes — 50 Qəpik Lənkəran</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ── BOTTOM NAV ── -->
+<nav class="bottom-nav" id="bottomNav">
+  <button class="nav-btn active" data-page="home">
+    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    <span>Ana səhifə</span>
+  </button>
+  <button class="nav-btn" data-page="menu">
+    <svg viewBox="0 0 24 24"><path d="M8.1 13.34l2.83-2.83L3.91 3.5a4.008 4.008 0 000 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"/></svg>
+    <span>Menyu</span>
+  </button>
+  <button class="nav-btn" data-page="order">
+    <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+    <span>Sifariş</span>
+  </button>
+  <button class="nav-btn" data-page="reservation">
+    <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+    <span>Rezerv</span>
+  </button>
+  <button class="nav-btn" data-page="about">
+    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+    <span>Haqqında</span>
+  </button>
+</nav>
+
+<!-- ══════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════ -->
+<div class="page active" id="page-home">
+  <div class="hero">
+    <img src="images/logo.png" alt="Crepes Logo" class="hero-logo" />
+    <h1 class="hero-title">50 Qəpik<br/><span>Lənkəran</span></h1>
+    <p class="hero-sub">Dadlı krepiçlər · Sürətli çatdırılma</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="goTo('menu')">Menyuya bax</button>
+      <button class="btn-secondary" onclick="goTo('order')">Sifariş et</button>
+    </div>
+  </div>
+
+  <!-- Most Popular -->
+  <section class="section">
+    <h2 class="section-title">🔥 Ən çox sifariş edilən</h2>
+    <div class="card-scroll" id="popularScroll"></div>
+  </section>
+
+  <!-- Gallery preview -->
+  <section class="section">
+    <div class="section-header">
+      <h2 class="section-title">📸 Qaleriya</h2>
+      <button class="see-all" onclick="openGallery()">Hamısı</button>
+    </div>
+    <div class="gallery-grid" id="galleryPreview"></div>
+  </section>
+
+  <!-- Working hours -->
+  <section class="section info-card">
+    <h2 class="section-title">⏰ İş saatları</h2>
+    <div class="hours-list">
+      <div class="hour-row"><span>Bazar ertəsi – Cümə</span><span class="hour-val">09:00 – 22:00</span></div>
+      <div class="hour-row"><span>Şənbə</span><span class="hour-val">10:00 – 23:00</span></div>
+      <div class="hour-row"><span>Bazar</span><span class="hour-val">10:00 – 22:00</span></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="homeFaq">
+    <h2 class="section-title">❓ Tez-tez verilən suallar</h2>
+    <div class="faq-list" id="faqList"></div>
+  </section>
+
+  <div class="bottom-space"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE: MENU
+══════════════════════════════════ -->
+<div class="page" id="page-menu">
+  <div class="page-header">
+    <h2>Menyu</h2>
+  </div>
+
+  <div class="cat-tabs" id="catTabs"></div>
+
+  <div id="menuContent"></div>
+
+  <div class="bottom-space"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE: ORDER
+══════════════════════════════════ -->
+<div class="page" id="page-order">
+  <div class="page-header">
+    <h2>Sifariş et</h2>
+  </div>
+
+  <!-- Cart -->
+  <section class="section" id="cartSection" style="display:none">
+    <h3 class="sub-title">🛒 Səbət</h3>
+    <div id="cartItems"></div>
+    <div class="cart-total" id="cartTotal"></div>
+    <button class="cart-clear" onclick="clearCart()">Səbəti təmizlə</button>
+  </section>
+
+  <section class="section" id="emptyCart">
+    <p class="empty-msg">Hələ heç bir məhsul seçilməyib.<br/>Menyuya baxın və bəyəndiklərinizi əlavə edin 😊</p>
+    <button class="btn-primary" onclick="goTo('menu')">Menyuya bax</button>
+  </section>
+
+  <!-- Order Form -->
+  <section class="section">
+    <h3 class="sub-title">📝 Məlumatlarınız</h3>
+    <form id="orderForm" class="form" onsubmit="submitOrder(event)">
+      <div class="form-group">
+        <label>Ad Soyad *</label>
+        <input type="text" id="ord-name" placeholder="Adınızı daxil edin" required />
+      </div>
+      <div class="form-group">
+        <label>Telefon *</label>
+        <input type="tel" id="ord-phone" placeholder="+994 XX XXX XX XX" required />
+      </div>
+      <div class="form-group">
+        <label>Ünvan</label>
+        <input type="text" id="ord-address" placeholder="Çatdırılma ünvanı" />
+      </div>
+      <div class="form-group">
+        <label>Konum <button type="button" class="loc-btn" onclick="getLocation()">📍 Konumu Al</button></label>
+        <input type="text" id="ord-location" placeholder="Konum link olaraq əlavə olunacaq" readonly />
+      </div>
+      <div class="form-group">
+        <label>Əlavə qeyd</label>
+        <textarea id="ord-note" rows="3" placeholder="Əlavə istəkləriniz..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary full-w">Sifarişi göndər 🚀</button>
+    </form>
+  </section>
+  <div class="bottom-space"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE: RESERVATION
+══════════════════════════════════ -->
+<div class="page" id="page-reservation">
+  <div class="page-header">
+    <h2>Rezervasiya</h2>
+  </div>
+  <section class="section">
+    <form id="resForm" class="form" onsubmit="submitReservation(event)">
+      <div class="form-group">
+        <label>Ad Soyad *</label>
+        <input type="text" id="res-name" placeholder="Adınızı daxil edin" required />
+      </div>
+      <div class="form-group">
+        <label>Telefon *</label>
+        <input type="tel" id="res-phone" placeholder="+994 XX XXX XX XX" required />
+      </div>
+      <div class="form-group">
+        <label>Neçə nəfər? *</label>
+        <select id="res-people" required>
+          <option value="">Seçin</option>
+          <option>1 nəfər</option>
+          <option>2 nəfər</option>
+          <option>3 nəfər</option>
+          <option>4 nəfər</option>
+          <option>5 nəfər</option>
+          <option>6+ nəfər</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tarix və saat *</label>
+        <input type="datetime-local" id="res-date" required />
+      </div>
+      <div class="form-group">
+        <label>Əlavə qeyd</label>
+        <textarea id="res-note" rows="3" placeholder="Xüsusi istəkləriniz..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary full-w">Rezervasiya et 📅</button>
+    </form>
+  </section>
+  <div class="bottom-space"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE: ABOUT
+══════════════════════════════════ -->
+<div class="page" id="page-about">
+  <div class="page-header">
+    <h2>Haqqında</h2>
+  </div>
+
+  <!-- Info card -->
+  <section class="section info-card about-top">
+    <img src="images/logo.png" alt="Logo" class="about-logo" />
+    <h3>Salam 50 Qəpik Lənkəran</h3>
+    <p>Dadlı krepiçlər, əlverişli qiymətlər. Hər loğman sevinc gətirir!</p>
+  </section>
+
+  <!-- Contact -->
+  <section class="section">
+    <h3 class="sub-title">📞 Əlaqə nömrəsi</h3>
+    <a class="contact-row" href="https://wa.me/994502531989?text=Salam%2C%20sizinl%C9%99%20%C9%99laq%C9%99%20saxlamaq%20ist%C9%99yirdim" target="_blank" rel="noopener">
+      <div class="contact-icon wa">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">WhatsApp ilə əlaqə</div>
+        <div class="contact-val">+994 50 253 19 89</div>
+      </div>
+      <svg class="contact-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </a>
+  </section>
+
+  <!-- Address -->
+  <section class="section">
+    <h3 class="sub-title">📍 Ünvan</h3>
+    <a class="contact-row" href="https://maps.app.goo.gl/KxRhchVD7wBTEM1b9" target="_blank" rel="noopener">
+      <div class="contact-icon map">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Xəritədə göstər</div>
+        <div class="contact-val">Lənkəran, Azərbaycan</div>
+      </div>
+      <svg class="contact-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </a>
+  </section>
+
+  <!-- Instagram -->
+  <section class="section">
+    <h3 class="sub-title">📱 Instagram</h3>
+    <a class="contact-row" href="https://www.instagram.com/50qepikzeytun_lenkeran?igsh=MTN1NTV5N291NGlucQ==" target="_blank" rel="noopener">
+      <div class="contact-icon ig">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      </div>
+      <div>
+        <div class="contact-label">Instagram səhifəmiz</div>
+        <div class="contact-val">@50qepikzeytun_lenkeran</div>
+      </div>
+      <svg class="contact-arrow" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+    </a>
+  </section>
+
+  <!-- Hours -->
+  <section class="section info-card">
+    <h3 class="sub-title">⏰ İş saatları</h3>
+    <div class="hours-list">
+      <div class="hour-row"><span>Bazar ertəsi – Cümə</span><span class="hour-val">09:00 – 22:00</span></div>
+      <div class="hour-row"><span>Şənbə</span><span class="hour-val">10:00 – 23:00</span></div>
+      <div class="hour-row"><span>Bazar</span><span class="hour-val">10:00 – 22:00</span></div>
+    </div>
+  </section>
+
+  <div class="bottom-space"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PAGE: GALLERY (hidden tab — accessed via "see all")
+══════════════════════════════════ -->
+<div class="page" id="page-gallery">
+  <div class="page-header has-back">
+    <button class="back-btn" onclick="goBack()">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+    </button>
+    <h2>Qaleriya</h2>
+  </div>
+  <section class="section">
+    <div class="gallery-full" id="galleryFull"></div>
+  </section>
+  <div class="bottom-space"></div>
+</div>
+
+<!-- ══════════════════════════════════
+     PRODUCT DETAIL MODAL
+══════════════════════════════════ -->
+<div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeProductModal()">✕</button>
+    <img id="modal-img" src="" alt="" />
+    <div class="modal-body">
+      <h3 id="modal-name"></h3>
+      <p id="modal-ingredients"></p>
+      <div id="modal-price" class="modal-price"></div>
+      <div class="modal-actions">
+        <button class="btn-primary full-w" id="modal-add-btn">Səbətə əlavə et 🛒</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
