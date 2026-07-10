@@ -127,10 +127,10 @@ const CATS = [
    Add/remove paths here for gallery
 ────────────────────────────────── */
 const GALLERY_IMGS = [
-  'images/crepe-main.jpg',
-  'images/crepe-main.jpg',
-  'images/crepe-main.jpg',
-  'images/crepe-main.jpg',
+  'galr.jpg',
+  'galr.jpg',
+  'galr.jpg',
+  'galr.jpg',
   'images/crepe-main.jpg',
   'images/crepe-main.jpg',
   'images/crepe-main.jpg',
