@@ -143,11 +143,11 @@ const GALLERY_IMGS = [
 const FAQ = [
   {
     q: 'Çatdırılma xidmətiniz varmı?',
-    a: 'Bəli, Lənkəran şəhəri daxilində çatdırılma xidmətimiz mövcuddur. Sifariş üçün WhatsApp-dan əlaqə saxlayın.'
+    a: 'Bəli, Bakı şəhəri daxilində çatdırılma xidmətimiz mövcuddur. Sifariş üçün WhatsApp-dan əlaqə saxlayın.'
   },
   {
     q: 'Minimum sifariş məbləği nədir?',
-    a: 'Minimum sifariş məbləği 10 AZN-dir.'
+    a: 'Minimum sifariş məbləği Yoxdur.'
   },
   {
     q: 'Rezervasiya üçün neçə gün əvvəl müraciət etmək lazımdır?',
